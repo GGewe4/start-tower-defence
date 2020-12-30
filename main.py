@@ -47,12 +47,12 @@ class Game:
             for j in range(self.width_board):
                 if self.board[i][j]:
                     img = pygame.image.load(f'{DIR_RES}/{DIC_OF_TILES[self.board[i][j]]}')
-                    if self.board[i][j] != 1:
-                        img = pygame.transform.scale(img, (self.len_tile - 3, self.len_tile - 3))
-                        self.win.blit(img, (self.left + self.len_tile * j, self.top + self.len_tile * i))
+                    if self.board[i][j] != 1 and self.board[i][j] != 4 and self.board[i][j] != 3:
+                        img = pygame.transform.scale(img, (self.len_tile - 6, self.len_tile - 6))
+                        self.win.blit(img, (self.left + self.len_tile * j + 3, self.top + self.len_tile * i + 3))
                     else:
                         img = pygame.transform.scale(img, (self.len_tile, self.len_tile))
-                        self.win.blit(img, (self.left + self.len_tile * j + 3, self.top + (self.len_tile + 3) * i))
+                        self.win.blit(img, (self.left + self.len_tile * j, self.top + self.len_tile * i))
         pygame.display.update()
 
 
